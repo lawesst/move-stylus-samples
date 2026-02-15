@@ -1,0 +1,6 @@
+# Build outputs from move-stylus
+**/build/
+.DS_Store
+*.swp
+.env
+.env.local

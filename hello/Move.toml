@@ -1,0 +1,6 @@
+[package]
+name = "hello"
+edition = "2024"
+
+[addresses]
+hello = "0x0"
