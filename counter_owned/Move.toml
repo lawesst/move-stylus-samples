@@ -1,0 +1,6 @@
+[package]
+name = "counter_owned"
+edition = "2024"
+
+[addresses]
+counter_owned = "0x0"

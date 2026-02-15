@@ -21,12 +21,22 @@ cargo install --locked --path crates/move-cli
 
 Verify: `move-stylus --version`
 
+If you have the [move-stylus](https://github.com/rather-labs/move-stylus) repo cloned locally but not installed:
+
+```bash
+cd /path/to/move-stylus
+cargo run -p move-cli -- build -p /path/to/move-stylus-samples/counter
+cargo run -p move-cli -- test -p /path/to/move-stylus-samples/counter
+```
+
 ## Projects
 
-| Project    | Description                    |
-|-----------|--------------------------------|
-| `counter/` | Counter with create, increment, read, set_value; includes unit tests. |
-| `hello/`  | Minimal "hello world" Move module. |
+| Project           | Description |
+|-------------------|-------------|
+| `counter/`        | Shared counter: create, increment, read, set_value (owner-only); unit tests. |
+| `hello/`          | Minimal "hello world" Move module. |
+| `vault/`          | Shared vault: anyone can deposit, only owner can withdraw; unit tests. |
+| `counter_owned/`  | Owned counter: created in `init`, transferred to sender; increment, read, set_value. |
 
 ## Build & Test
 
@@ -38,11 +48,9 @@ move-stylus build
 move-stylus test
 ```
 
-```bash
-cd hello
-move-stylus build
-move-stylus test
-```
+Or run all: `./scripts/build-and-test.sh`
+
+Same for `hello/`, `vault/`, `counter_owned/`.
 
 The move-stylus CLI automatically pulls **MoveStdlib** and **StylusFramework** from the [move-stylus repo](https://github.com/rather-labs/move-stylus); no extra deps in `Move.toml` are required.
 

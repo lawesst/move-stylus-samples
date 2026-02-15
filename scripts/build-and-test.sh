@@ -10,7 +10,7 @@ if ! command -v move-stylus &>/dev/null; then
   exit 1
 fi
 
-for dir in counter hello; do
+for dir in counter hello vault counter_owned; do
   if [[ -d "$dir" ]] && [[ -f "$dir/Move.toml" ]]; then
     echo "=== $dir ==="
     (cd "$dir" && move-stylus build && move-stylus test)
